@@ -14,7 +14,7 @@ Objectives:
 5) Provide interface for IT integration with an OT environment.
 6) Provide viable attack surfaces for penetration testing practical application.
 
-
+<img src="https://github.com/reccejack/Images/Abstract1.png"/>
 
 ------------------------------------------
 Change Log:
