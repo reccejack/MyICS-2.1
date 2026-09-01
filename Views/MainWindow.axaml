@@ -1,0 +1,41 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MyICSv2._1.ViewModels"
+        xmlns:local="using:MyICSv2._1.Models"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MyICSv2._1.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Width="400"
+        Height="350"
+        Title="MyICSv2.1">
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+    <StackPanel>
+        <Border Background="LightBlue">
+            <TextBlock Margin="5" HorizontalAlignment="Center">Input Manager</TextBlock>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Button Click="OnClick_AddDevice" Width="100" Height="30">Add Device</Button>
+            <Button Click="OnClick_Remove" Width="70" Height="30">Remove</Button>
+        </StackPanel>
+
+        <!--ListBox Box-->
+        <TextBlock Margin="0 5">List of Inputs</TextBlock>     
+        <ListBox x:Name="InputListBox" Background="PaleVioletRed" ItemsSource="{Binding Devices}">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="local:Device">
+                    <TextBlock Text="{Binding DeviceName}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+
+</Window>
